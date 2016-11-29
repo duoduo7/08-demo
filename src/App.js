@@ -6,12 +6,13 @@ import NavFooter from './component/NavFooter';
 class App extends React.Component {
   render () {
     return(
-      <div>
+      <div className='my-wrap'>
        <NavHeader />
-       {this.props.children}
 
-
-      <NavFooter />
+        <div className='main'>
+         {this.props.children}
+        </div>
+       <NavFooter />
       </div>
   　
     )
