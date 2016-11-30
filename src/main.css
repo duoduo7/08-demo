@@ -5,6 +5,7 @@
 .btn:active:focus, .btn:focus{
 outline: none;
 }*/
+
 .my-wrap{
   display: flex;;
   flex-direction: column;
@@ -13,7 +14,10 @@ outline: none;
 .main{
   flex-grow: 1;
   overflow-y: scroll;
+  display: flex;
+
 }
+
 .nav-footer{
   flex-shrink: 0;
   height:80px;
@@ -58,4 +62,24 @@ outline: none;
   border-radius: 6px ;
   padding: 6px 12px;
 
+}
+.home-wrap{
+  flex-grow: 1;
+ background-image: url(./image/20130822083426515.jpg);
+
+ background-size: cover;
+ background-position: center;
+ display: flex;
+}
+
+.home-cover{
+  background-color: rgba(0, 0, 0, 0.5);
+  flex-grow: 1;
+  align-items: center;
+  display: flex;
+}
+.home-item{
+  text-align: center;
+  margin: 0 auto;
+  color:#fff;
 }

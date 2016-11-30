@@ -1,8 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router'
 
-class NavHeader extends React.Component {
+class NavFooter extends React.Component {
+
   render () {
+
     return(
       <div className='nav-footer'>
         <Link to='' activeStyle={{color:'purple'}} onlyActiveOnIndex={true}><span
@@ -21,4 +23,5 @@ class NavHeader extends React.Component {
   }
 }
 
-export default NavHeader;
+
+export default NavFooter;
