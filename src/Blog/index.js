@@ -1,22 +1,29 @@
 import React from 'react';
+import axios from 'axios';
 
 
 import BlogCard from '../component/BlogCard';
-let data=[
-    {index:1,title:'hello',desc:'world'},
-    {index:2,title:'hello',desc:'world1'},
-    {index:3,title:'hello',desc:'world2'},
-    {index:4,title:'hello',desc:'world3'},
-    {index:5,title:'hello',desc:'world4'}
+import Loading from '../component/Loading';
 
-]
 class Blog extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      data:[],
+      wait:true
+    }
+  }
+  componentDidMount(){
+    axios.get('https://raw.githubusercontent.com/duoduo7/08-demo/master/data/blogcard.json')
+    .then( res => this.setState({data:res.data,wait:false}) )
+  }
   render () {
-    let cards = data.map((item,i) => <BlogCard {...item} key={i} />)
+
     return(
       <div className='blog-wrap'>
 
-       {cards}
+       {this.state.wait ? <Loading />:
+        this.state. data.map((item,i) => <BlogCard {...item} key={i} />)}
       </div>
     )
   }
