@@ -149,3 +149,6 @@ outline: none;
   margin: 10px 0;
 
 }
+.my-wrap{
+  flex-flow: 1;
+}

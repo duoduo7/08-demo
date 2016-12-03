@@ -1,20 +1,32 @@
 import React from 'react';
 
 import marked from 'marked';
+import axios from 'axios'
+import Loading from '../component/Loading'
 
 
 class Item extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      data:''
+    }
+  }
   componentDidMount(){
-    
+    let address = this.props.params.title;
+
+    axios.get(`https://raw.githubusercontent.com/duoduo7/08-demo/master/data/${address}.md`)
+      .then( res => this.setState({data:res.data}) )
   }
   render () {
-    let context = this.props.params.title==0 ? '这是第一个页面':
-    this.props.params.title == 1 ? '这是第二个页面':
-    this.props.params.title == 2 ? '这是第三个页面': '这是第ｎ个页面';
-    return(
-    <div>
-      {context}
 
+    return(
+    <div className='my-wrap'>
+      {
+        this.state.data.length==0?<Loading /> :
+      <div dangerouslySetInnerHTML={{__html:marked(this.state.data)}}/>
+
+      }
     </div>
     )
   }
